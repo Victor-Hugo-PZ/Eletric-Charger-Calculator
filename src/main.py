@@ -1,66 +1,32 @@
 from fastapi import FastAPI, Depends, HTTPException
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import FileResponse
-from sqlalchemy import create_engine, Column, Integer, String, Float, ForeignKey
-from sqlalchemy.orm import sessionmaker, relationship, Session, declarative_base
+from sqlalchemy.orm import Session
 from pydantic import BaseModel
-from typing import List, Dict
+import uvicorn
+import os
+import sys
 
-# Configuração do Banco de Dados
-SQLALCHEMY_DATABASE_URL = "sqlite:///./charger_time.db"
-engine = create_engine(SQLALCHEMY_DATABASE_URL, connect_args={"check_same_thread": False})
-SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
-Base = declarative_base()
+# Adiciona o diretório src ao path para permitir imports relativos se necessário
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
-# Modelos do Banco de Dados
-class Vehicle(Base):
-    __tablename__ = "vehicles"
-    id = Column(Integer, primary_key=True, index=True)
-    brand = Column(String)
-    model = Column(String)
-    year = Column(Integer)
-    battery_kwh = Column(Float)
-    max_ac_kw = Column(Float)
-    max_dc_kw = Column(Float)
-    simulations = relationship("Simulation", back_populates="vehicle")
+from database import SessionLocal, Vehicle, Simulation, init_db
 
-    def to_dict(self):
-        return {
-            "id": self.id,
-            "brand": self.brand,
-            "model": self.model,
-            "year": self.year,
-            "battery_kwh": self.battery_kwh,
-            "max_ac_kw": self.max_ac_kw,
-            "max_dc_kw": self.max_dc_kw
-        }
-
-class Simulation(Base):
-    __tablename__ = "simulations"
-    id = Column(Integer, primary_key=True, index=True)
-    vehicle_id = Column(Integer, ForeignKey("vehicles.id"))
-    initial_soc_percent = Column(Float)
-    final_soc_percent = Column(Float)
-    charger_power_kw = Column(Float)
-    total_time_minutes = Column(Float)
-    total_cost = Column(Float)
-    vehicle = relationship("Vehicle", back_populates="simulations")
-
-def init_db():
-    Base.metadata.create_all(bind=engine)
-
-# App FastAPI
 app = FastAPI(title="Charger Time API")
 
 # Inicializa o banco de dados
 init_db()
 
+# Caminhos absolutos para arquivos estáticos
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+STATIC_DIR = os.path.join(BASE_DIR, "static")
+
 # Servir arquivos estáticos
-app.mount("/static", StaticFiles(directory="static"), name="static")
+app.mount("/static", StaticFiles(directory=STATIC_DIR), name="static")
 
 @app.get("/")
 async def read_index():
-    return FileResponse("static/index.html")
+    return FileResponse(os.path.join(STATIC_DIR, "index.html"))
 
 # Dependency
 def get_db():
@@ -98,7 +64,6 @@ def simulate(request: SimulationRequest, db: Session = Depends(get_db)):
         return SimulationResponse(total_time_minutes=0, total_cost=0, energy_added_kwh=0)
 
     # Determinar se o carregador é AC ou DC
-    # AC <= 22kW, DC > 22kW
     if request.potencia_carregador_kw <= 22:
         vehicle_max_power = vehicle.max_ac_kw
     else:
@@ -128,7 +93,6 @@ def simulate(request: SimulationRequest, db: Session = Depends(get_db)):
     if final_soc > 80:
         soc_start_phase2 = max(80, initial_soc)
         energy_phase2 = (final_soc - soc_start_phase2) / 100 * battery_capacity
-        # A potência despenca para 20% da potência máxima aceita
         power_phase2 = 0.2 * vehicle_max_power
         
         if power_phase2 > 0:
@@ -157,5 +121,4 @@ def simulate(request: SimulationRequest, db: Session = Depends(get_db)):
     )
 
 if __name__ == "__main__":
-    import uvicorn
     uvicorn.run(app, host="0.0.0.0", port=8001)
