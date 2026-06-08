@@ -745,5 +745,71 @@
   { "brand": "Toyota", "model": "RAV4 PHEV", "year": 2026, "battery_kwh": 18.1, "max_ac_kw": 6.6, "max_dc_kw": 0 },
   { "brand": "Toyota", "model": "bZ4X", "year": 2024, "battery_kwh": 71.4, "max_ac_kw": 11.0, "max_dc_kw": 150 },
   { "brand": "Toyota", "model": "bZ4X", "year": 2025, "battery_kwh": 71.4, "max_ac_kw": 11.0, "max_dc_kw": 150 },
-  { "brand": "Toyota", "model": "bZ4X", "year": 2026, "battery_kwh": 71.4, "max_ac_kw": 11.0, "max_dc_kw": 150 }
+  { "brand": "Toyota", "model": "bZ4X", "year": 2026, "battery_kwh": 71.4, "max_ac_kw": 11.0, "max_dc_kw": 150 },
+
+
+
+  { "brand": "Jaecoo", "model": "J7 PHEV", "year": 2024, "battery_kwh": 18.3, "max_ac_kw": 6.6, "max_dc_kw": 40 },
+  { "brand": "Jaecoo", "model": "J7 PHEV", "year": 2025, "battery_kwh": 18.3, "max_ac_kw": 6.6, "max_dc_kw": 40 },
+  { "brand": "Jaecoo", "model": "J7 PHEV", "year": 2026, "battery_kwh": 18.3, "max_ac_kw": 6.6, "max_dc_kw": 40 },
+  { "brand": "Jaecoo", "model": "J8 PHEV", "year": 2025, "battery_kwh": 34.4, "max_ac_kw": 6.6, "max_dc_kw": 70 },
+  { "brand": "Jaecoo", "model": "J8 PHEV", "year": 2026, "battery_kwh": 34.4, "max_ac_kw": 6.6, "max_dc_kw": 70 },
+
+
+
+  { "brand": "Omoda", "model": "E5", "year": 2024, "battery_kwh": 61.1, "max_ac_kw": 9.9, "max_dc_kw": 80 },
+  { "brand": "Omoda", "model": "E5", "year": 2025, "battery_kwh": 61.1, "max_ac_kw": 9.9, "max_dc_kw": 80 },
+  { "brand": "Omoda", "model": "E5", "year": 2026, "battery_kwh": 61.1, "max_ac_kw": 9.9, "max_dc_kw": 80 },
+  { "brand": "Omoda", "model": "7 PHEV", "year": 2025, "battery_kwh": 18.4, "max_ac_kw": 6.6, "max_dc_kw": 40 },
+  { "brand": "Omoda", "model": "7 PHEV", "year": 2026, "battery_kwh": 18.4, "max_ac_kw": 6.6, "max_dc_kw": 40 },
+
+
+
+  { "brand": "Leapmotor", "model": "B10 BEV", "year": 2026, "battery_kwh": 56.2, "max_ac_kw": 6.6, "max_dc_kw": 168 },
+  { "brand": "Leapmotor", "model": "C10 BEV", "year": 2025, "battery_kwh": 69.9, "max_ac_kw": 6.6, "max_dc_kw": 84 },
+  { "brand": "Leapmotor", "model": "C10 BEV", "year": 2026, "battery_kwh": 69.9, "max_ac_kw": 6.6, "max_dc_kw": 84 },
+  { "brand": "Leapmotor", "model": "C10 REEV", "year": 2025, "battery_kwh": 28.4, "max_ac_kw": 6.6, "max_dc_kw": 65 },
+  { "brand": "Leapmotor", "model": "C10 REEV", "year": 2026, "battery_kwh": 28.4, "max_ac_kw": 6.6, "max_dc_kw": 65 },
+
+
+
+  { "brand": "Geely", "model": "EX2", "year": 2025, "battery_kwh": 39.4, "max_ac_kw": 6.6, "max_dc_kw": 70 },
+  { "brand": "Geely", "model": "EX2", "year": 2026, "battery_kwh": 39.4, "max_ac_kw": 6.6, "max_dc_kw": 70 },
+  { "brand": "Geely", "model": "EX5", "year": 2025, "battery_kwh": 60.2, "max_ac_kw": 11.0, "max_dc_kw": 100 },
+  { "brand": "Geely", "model": "EX5", "year": 2026, "battery_kwh": 60.2, "max_ac_kw": 11.0, "max_dc_kw": 100 },
+  { "brand": "Geely", "model": "EX5 EM-i", "year": 2025, "battery_kwh": 18.4, "max_ac_kw": 6.6, "max_dc_kw": 30 },
+  { "brand": "Geely", "model": "EX5 EM-i", "year": 2026, "battery_kwh": 18.4, "max_ac_kw": 6.6, "max_dc_kw": 30 },
+  { "brand": "Geely", "model": "EX5 EM-i Long Range", "year": 2026, "battery_kwh": 29.8, "max_ac_kw": 6.6, "max_dc_kw": 60 },
+
+
+
+  { "brand": "RAM", "model": "1500 REV (168 kWh)", "year": 2026, "battery_kwh": 168.0, "max_ac_kw": 11.0, "max_dc_kw": 350 },
+  { "brand": "RAM", "model": "1500 REV (229 kWh)", "year": 2026, "battery_kwh": 229.0, "max_ac_kw": 11.0, "max_dc_kw": 350 },
+  { "brand": "RAM", "model": "1500 Ramcharger (REEV)", "year": 2026, "battery_kwh": 92.0, "max_ac_kw": 11.0, "max_dc_kw": 145 },
+
+
+
+  { "brand": "Lexus", "model": "RX 450h+", "year": 2024, "battery_kwh": 18.1, "max_ac_kw": 6.6, "max_dc_kw": 0 },
+  { "brand": "Lexus", "model": "RX 450h+", "year": 2025, "battery_kwh": 18.1, "max_ac_kw": 6.6, "max_dc_kw": 0 },
+  { "brand": "Lexus", "model": "RX 450h+", "year": 2026, "battery_kwh": 18.1, "max_ac_kw": 6.6, "max_dc_kw": 0 },
+  { "brand": "Lexus", "model": "NX 450h+", "year": 2025, "battery_kwh": 18.1, "max_ac_kw": 6.6, "max_dc_kw": 0 },
+  { "brand": "Lexus", "model": "NX 450h+", "year": 2026, "battery_kwh": 18.1, "max_ac_kw": 6.6, "max_dc_kw": 0 },
+  { "brand": "Lexus", "model": "RZ 500e", "year": 2026, "battery_kwh": 71.4, "max_ac_kw": 11.0, "max_dc_kw": 150 },
+  { "brand": "Lexus", "model": "UX 300e", "year": 2024, "battery_kwh": 72.8, "max_ac_kw": 6.6, "max_dc_kw": 50 },
+  { "brand": "Lexus", "model": "UX 300e", "year": 2025, "battery_kwh": 72.8, "max_ac_kw": 6.6, "max_dc_kw": 50 },
+  { "brand": "Lexus", "model": "UX 300e", "year": 2026, "battery_kwh": 72.8, "max_ac_kw": 6.6, "max_dc_kw": 50 },
+
+
+
+  { "brand": "MG", "model": "MG4 Luxury", "year": 2025, "battery_kwh": 64.0, "max_ac_kw": 11.0, "max_dc_kw": 140 },
+  { "brand": "MG", "model": "MG4 Luxury", "year": 2026, "battery_kwh": 64.0, "max_ac_kw": 11.0, "max_dc_kw": 140 },
+  { "brand": "MG", "model": "MG4 XPower", "year": 2025, "battery_kwh": 64.0, "max_ac_kw": 11.0, "max_dc_kw": 140 },
+  { "brand": "MG", "model": "MG4 XPower", "year": 2026, "battery_kwh": 64.0, "max_ac_kw": 11.0, "max_dc_kw": 140 },
+  { "brand": "MG", "model": "MG4 Urban", "year": 2026, "battery_kwh": 51.0, "max_ac_kw": 6.6, "max_dc_kw": 88 },
+  { "brand": "MG", "model": "S5", "year": 2026, "battery_kwh": 62.2, "max_ac_kw": 6.6, "max_dc_kw": 150 },
+  { "brand": "MG", "model": "Cyberster", "year": 2025, "battery_kwh": 77.0, "max_ac_kw": 11.0, "max_dc_kw": 144 },
+  { "brand": "MG", "model": "Cyberster", "year": 2026, "battery_kwh": 77.0, "max_ac_kw": 11.0, "max_dc_kw": 144 },
+  { "brand": "MG", "model": "ZS EV", "year": 2024, "battery_kwh": 51.1, "max_ac_kw": 6.6, "max_dc_kw": 92 },
+  { "brand": "MG", "model": "ZS EV", "year": 2025, "battery_kwh": 51.1, "max_ac_kw": 6.6, "max_dc_kw": 92 },
+  { "brand": "MG", "model": "ZS EV", "year": 2026, "battery_kwh": 51.1, "max_ac_kw": 6.6, "max_dc_kw": 92 }
 ]
