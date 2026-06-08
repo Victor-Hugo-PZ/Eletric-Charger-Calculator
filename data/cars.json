@@ -158,6 +158,7 @@
   { "brand": "Audi", "model": "Q6 e-tron", "year": 2024, "battery_kwh": 100.0, "max_ac_kw": 11.0, "max_dc_kw": 270 },
   { "brand": "Audi", "model": "Q6 e-tron", "year": 2025, "battery_kwh": 100.0, "max_ac_kw": 11.0, "max_dc_kw": 270 },
   { "brand": "Audi", "model": "Q6 e-tron", "year": 2026, "battery_kwh": 100.0, "max_ac_kw": 11.0, "max_dc_kw": 270 },
+  { "brand": "Audi", "model": "Nuvolari", "year": 2027, "battery_kwh": 7.3, "max_ac_kw": 7.0, "max_dc_kw": 0 },
 
 
 
@@ -183,7 +184,7 @@
   { "brand": "GWM", "model": "Ora 07", "year": 2026, "battery_kwh": 83.5, "max_ac_kw": 11.0, "max_dc_kw": 88 },
 
 
-  
+
   { "brand": "Volvo", "model": "S60 Recharge T8", "year": 2020, "battery_kwh": 11.6, "max_ac_kw": 3.7, "max_dc_kw": 0 },
   { "brand": "Volvo", "model": "S60 Recharge T8", "year": 2021, "battery_kwh": 11.6, "max_ac_kw": 3.7, "max_dc_kw": 0 },
   { "brand": "Volvo", "model": "S60 Recharge T8", "year": 2022, "battery_kwh": 18.8, "max_ac_kw": 6.4, "max_dc_kw": 0 },
@@ -850,7 +851,7 @@
   { "brand": "Lamborghini", "model": "Urus SE", "year": 2026, "battery_kwh": 25.9, "max_ac_kw": 7.2, "max_dc_kw": 0 },
 
 
-
+  { "brand": "Ferrari", "model": "Luce", "year": 2026, "battery_kwh": 122.0, "max_ac_kw": 22.0, "max_dc_kw": 350 },
   { "brand": "Ferrari", "model": "SF90 Stradale", "year": 2021, "battery_kwh": 7.9, "max_ac_kw": 3.5, "max_dc_kw": 0 },
   { "brand": "Ferrari", "model": "SF90 Stradale", "year": 2022, "battery_kwh": 7.9, "max_ac_kw": 3.5, "max_dc_kw": 0 },
   { "brand": "Ferrari", "model": "SF90 Stradale", "year": 2023, "battery_kwh": 7.9, "max_ac_kw": 3.5, "max_dc_kw": 0 },
@@ -907,7 +908,47 @@
   { "brand": "Seres", "model": "5 EVR", "year": 2026, "battery_kwh": 40.0, "max_ac_kw": 11.0, "max_dc_kw": 100 },
   { "brand": "Seres", "model": "5 EV", "year": 2024, "battery_kwh": 90.0, "max_ac_kw": 11.0, "max_dc_kw": 100 },
   { "brand": "Seres", "model": "5 EV", "year": 2025, "battery_kwh": 90.0, "max_ac_kw": 11.0, "max_dc_kw": 100 },
-  { "brand": "Seres", "model": "5 EV", "year": 2026, "battery_kwh": 90.0, "max_ac_kw": 11.0, "max_dc_kw": 100 }
+  { "brand": "Seres", "model": "5 EV", "year": 2026, "battery_kwh": 90.0, "max_ac_kw": 11.0, "max_dc_kw": 100 },
+
+
+
+  { "brand": "Yangwang", "model": "U8", "year": 2024, "battery_kwh": 49.05, "max_ac_kw": 7.0, "max_dc_kw": 110 },
+  { "brand": "Yangwang", "model": "U8", "year": 2025, "battery_kwh": 49.05, "max_ac_kw": 7.0, "max_dc_kw": 110 },
+  { "brand": "Yangwang", "model": "U8", "year": 2026, "battery_kwh": 49.05, "max_ac_kw": 7.0, "max_dc_kw": 110 },
+  { "brand": "Yangwang", "model": "U9", "year": 2024, "battery_kwh": 80.0, "max_ac_kw": 11.0, "max_dc_kw": 500 },
+  { "brand": "Yangwang", "model": "U9", "year": 2025, "battery_kwh": 80.0, "max_ac_kw": 11.0, "max_dc_kw": 500 },
+  { "brand": "Yangwang", "model": "U9 Xtreme", "year": 2026, "battery_kwh": 120.0, "max_ac_kw": 11.0, "max_dc_kw": 500 },
+  { "brand": "Yangwang", "model": "U7", "year": 2025, "battery_kwh": 135.5, "max_ac_kw": 11.0, "max_dc_kw": 500 },
+  { "brand": "Yangwang", "model": "U7", "year": 2026, "battery_kwh": 135.5, "max_ac_kw": 11.0, "max_dc_kw": 500 },
+
+
+
+  { "brand": "Xiaomi", "model": "SU7", "year": 2024, "battery_kwh": 73.6, "max_ac_kw": 11.0, "max_dc_kw": 170 },
+  { "brand": "Xiaomi", "model": "SU7", "year": 2025, "battery_kwh": 73.6, "max_ac_kw": 11.0, "max_dc_kw": 170 },
+  { "brand": "Xiaomi", "model": "SU7", "year": 2026, "battery_kwh": 73.6, "max_ac_kw": 11.0, "max_dc_kw": 170 },
+  { "brand": "Xiaomi", "model": "SU7 Pro", "year": 2024, "battery_kwh": 94.3, "max_ac_kw": 11.0, "max_dc_kw": 300 },
+  { "brand": "Xiaomi", "model": "SU7 Pro", "year": 2025, "battery_kwh": 94.3, "max_ac_kw": 11.0, "max_dc_kw": 300 },
+  { "brand": "Xiaomi", "model": "SU7 Pro", "year": 2026, "battery_kwh": 94.3, "max_ac_kw": 11.0, "max_dc_kw": 300 },
+  { "brand": "Xiaomi", "model": "SU7 Max", "year": 2024, "battery_kwh": 101.0, "max_ac_kw": 11.0, "max_dc_kw": 300 },
+  { "brand": "Xiaomi", "model": "SU7 Max", "year": 2025, "battery_kwh": 101.0, "max_ac_kw": 11.0, "max_dc_kw": 300 },
+  { "brand": "Xiaomi", "model": "SU7 Max", "year": 2026, "battery_kwh": 101.0, "max_ac_kw": 11.0, "max_dc_kw": 300 },
+  { "brand": "Xiaomi", "model": "SU7 Ultra", "year": 2025, "battery_kwh": 93.7, "max_ac_kw": 11.0, "max_dc_kw": 490 },
+  { "brand": "Xiaomi", "model": "SU7 Ultra", "year": 2026, "battery_kwh": 93.7, "max_ac_kw": 11.0, "max_dc_kw": 490 },
+
+
+  
+  { "brand": "GAC Aion", "model": "Y", "year": 2024, "battery_kwh": 63.2, "max_ac_kw": 6.6, "max_dc_kw": 75 },
+  { "brand": "GAC Aion", "model": "Y", "year": 2025, "battery_kwh": 63.2, "max_ac_kw": 6.6, "max_dc_kw": 75 },
+  { "brand": "GAC Aion", "model": "Y", "year": 2026, "battery_kwh": 63.2, "max_ac_kw": 6.6, "max_dc_kw": 75 },
+  { "brand": "GAC Aion", "model": "UT Premium", "year": 2026, "battery_kwh": 44.12, "max_ac_kw": 6.6, "max_dc_kw": 83 },
+  { "brand": "GAC Aion", "model": "UT Elite", "year": 2026, "battery_kwh": 60.0, "max_ac_kw": 6.6, "max_dc_kw": 87 },
+  { "brand": "GAC Aion", "model": "ES Plus", "year": 2025, "battery_kwh": 55.2, "max_ac_kw": 6.6, "max_dc_kw": 68 },
+  { "brand": "GAC Aion", "model": "ES Plus", "year": 2026, "battery_kwh": 55.2, "max_ac_kw": 6.6, "max_dc_kw": 68 },
+  { "brand": "GAC Hyptec", "model": "SSR", "year": 2024, "battery_kwh": 74.7, "max_ac_kw": 7.0, "max_dc_kw": 500 },
+  { "brand": "GAC Hyptec", "model": "SSR", "year": 2025, "battery_kwh": 74.7, "max_ac_kw": 7.0, "max_dc_kw": 500 },
+  { "brand": "GAC Hyptec", "model": "SSR", "year": 2026, "battery_kwh": 74.7, "max_ac_kw": 7.0, "max_dc_kw": 500 },
+  { "brand": "GAC Hyptec", "model": "HT", "year": 2025, "battery_kwh": 83.0, "max_ac_kw": 6.6, "max_dc_kw": 280 },
+  { "brand": "GAC Hyptec", "model": "HT", "year": 2026, "battery_kwh": 83.0, "max_ac_kw": 6.6, "max_dc_kw": 280 }
 
 
 ]
