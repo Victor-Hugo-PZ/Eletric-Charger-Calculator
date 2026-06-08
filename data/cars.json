@@ -20,6 +20,8 @@
   { "brand": "BYD", "model": "Seal", "year": 2024, "battery_kwh": 82.5, "max_ac_kw": 11.0, "max_dc_kw": 150 },
   { "brand": "BYD", "model": "Seal", "year": 2025, "battery_kwh": 82.5, "max_ac_kw": 11.0, "max_dc_kw": 150 },
   { "brand": "BYD", "model": "Seal", "year": 2026, "battery_kwh": 82.5, "max_ac_kw": 11.0, "max_dc_kw": 150 },
+  { "brand": "BYD", "model": "Shark", "year": 2025, "battery_kwh": 29.6, "max_ac_kw": 6.6, "max_dc_kw": 40 },
+  { "brand": "BYD", "model": "Shark", "year": 2026, "battery_kwh": 29.6, "max_ac_kw": 6.6, "max_dc_kw": 40 },
   { "brand": "BYD", "model": "Yuan Plus", "year": 2022, "battery_kwh": 60.4, "max_ac_kw": 7.0, "max_dc_kw": 80 },
   { "brand": "BYD", "model": "Yuan Plus", "year": 2023, "battery_kwh": 60.4, "max_ac_kw": 7.0, "max_dc_kw": 80 },
   { "brand": "BYD", "model": "Yuan Plus", "year": 2024, "battery_kwh": 60.4, "max_ac_kw": 7.0, "max_dc_kw": 80 },
@@ -173,9 +175,15 @@
   { "brand": "GWM", "model": "Ora 03 GT", "year": 2024, "battery_kwh": 63.0, "max_ac_kw": 11.0, "max_dc_kw": 64 },
   { "brand": "GWM", "model": "Ora 03 GT", "year": 2025, "battery_kwh": 63.0, "max_ac_kw": 11.0, "max_dc_kw": 64 },
   { "brand": "GWM", "model": "Ora 03 GT", "year": 2026, "battery_kwh": 63.0, "max_ac_kw": 11.0, "max_dc_kw": 64 },
+  { "brand": "GWM", "model": "Wey 05", "year": 2024, "battery_kwh": 39.7, "max_ac_kw": 11.0, "max_dc_kw": 50 },
+  { "brand": "GWM", "model": "Wey 05", "year": 2025, "battery_kwh": 39.7, "max_ac_kw": 11.0, "max_dc_kw": 50 },
+  { "brand": "GWM", "model": "Wey 05", "year": 2026, "battery_kwh": 39.7, "max_ac_kw": 11.0, "max_dc_kw": 50 },
+  { "brand": "GWM", "model": "Ora 07", "year": 2024, "battery_kwh": 83.5, "max_ac_kw": 11.0, "max_dc_kw": 88 },
+  { "brand": "GWM", "model": "Ora 07", "year": 2025, "battery_kwh": 83.5, "max_ac_kw": 11.0, "max_dc_kw": 88 },
+  { "brand": "GWM", "model": "Ora 07", "year": 2026, "battery_kwh": 83.5, "max_ac_kw": 11.0, "max_dc_kw": 88 },
 
 
-
+  
   { "brand": "Volvo", "model": "S60 Recharge T8", "year": 2020, "battery_kwh": 11.6, "max_ac_kw": 3.7, "max_dc_kw": 0 },
   { "brand": "Volvo", "model": "S60 Recharge T8", "year": 2021, "battery_kwh": 11.6, "max_ac_kw": 3.7, "max_dc_kw": 0 },
   { "brand": "Volvo", "model": "S60 Recharge T8", "year": 2022, "battery_kwh": 18.8, "max_ac_kw": 6.4, "max_dc_kw": 0 },
@@ -218,6 +226,11 @@
   { "brand": "Volvo", "model": "EX30", "year": 2026, "battery_kwh": 69.0, "max_ac_kw": 11.0, "max_dc_kw": 153 },
   { "brand": "Volvo", "model": "EX90", "year": 2025, "battery_kwh": 111.0, "max_ac_kw": 11.0, "max_dc_kw": 250 },
   { "brand": "Volvo", "model": "EX90", "year": 2026, "battery_kwh": 111.0, "max_ac_kw": 11.0, "max_dc_kw": 250 },
+  { "brand": "Volvo", "model": "S90 Recharge T8", "year": 2020, "battery_kwh": 11.6, "max_ac_kw": 3.7, "max_dc_kw": 0 },
+  { "brand": "Volvo", "model": "S90 Recharge T8", "year": 2021, "battery_kwh": 11.6, "max_ac_kw": 3.7, "max_dc_kw": 0 },
+  { "brand": "Volvo", "model": "S90 Recharge T8", "year": 2022, "battery_kwh": 18.8, "max_ac_kw": 6.4, "max_dc_kw": 0 },
+  { "brand": "Volvo", "model": "S90 Recharge T8", "year": 2023, "battery_kwh": 18.8, "max_ac_kw": 6.4, "max_dc_kw": 0 },
+  { "brand": "Volvo", "model": "S90 Recharge T8", "year": 2024, "battery_kwh": 18.8, "max_ac_kw": 6.4, "max_dc_kw": 0 },
 
 
 
@@ -268,6 +281,10 @@
   { "brand": "Peugeot", "model": "e-Expert", "year": 2024, "battery_kwh": 75.0, "max_ac_kw": 11.0, "max_dc_kw": 100 },
   { "brand": "Peugeot", "model": "e-Expert", "year": 2025, "battery_kwh": 75.0, "max_ac_kw": 11.0, "max_dc_kw": 100 },
   { "brand": "Peugeot", "model": "e-Expert", "year": 2026, "battery_kwh": 75.0, "max_ac_kw": 11.0, "max_dc_kw": 100 },
+  { "brand": "Peugeot", "model": "3008 GT Hybrid4", "year": 2022, "battery_kwh": 13.2, "max_ac_kw": 7.4, "max_dc_kw": 0 },
+  { "brand": "Peugeot", "model": "3008 GT Hybrid4", "year": 2023, "battery_kwh": 13.2, "max_ac_kw": 7.4, "max_dc_kw": 0 },
+  { "brand": "Peugeot", "model": "e-3008", "year": 2025, "battery_kwh": 73.0, "max_ac_kw": 11.0, "max_dc_kw": 160 },
+  { "brand": "Peugeot", "model": "e-3008", "year": 2026, "battery_kwh": 73.0, "max_ac_kw": 11.0, "max_dc_kw": 160 },
 
 
 
@@ -579,6 +596,9 @@
   { "brand": "JAC", "model": "E-JV5.5", "year": 2024, "battery_kwh": 50.2, "max_ac_kw": 6.6, "max_dc_kw": 50 },
   { "brand": "JAC", "model": "E-JV5.5", "year": 2025, "battery_kwh": 50.2, "max_ac_kw": 6.6, "max_dc_kw": 50 },
   { "brand": "JAC", "model": "E-JV5.5", "year": 2026, "battery_kwh": 50.2, "max_ac_kw": 6.6, "max_dc_kw": 50 },
+  { "brand": "JAC", "model": "iEV7S", "year": 2020, "battery_kwh": 39.0, "max_ac_kw": 6.6, "max_dc_kw": 40 },
+  { "brand": "JAC", "model": "iEV7S", "year": 2021, "battery_kwh": 39.0, "max_ac_kw": 6.6, "max_dc_kw": 40 },
+  { "brand": "JAC", "model": "iEV7S", "year": 2022, "battery_kwh": 39.0, "max_ac_kw": 6.6, "max_dc_kw": 40 },
 
 
 
@@ -628,6 +648,14 @@
   { "brand": "Mercedes-Benz", "model": "GLC 300 e", "year": 2024, "battery_kwh": 31.2, "max_ac_kw": 11.0, "max_dc_kw": 60 },
   { "brand": "Mercedes-Benz", "model": "GLC 300 e", "year": 2025, "battery_kwh": 31.2, "max_ac_kw": 11.0, "max_dc_kw": 60 },
   { "brand": "Mercedes-Benz", "model": "GLC 300 e", "year": 2026, "battery_kwh": 31.2, "max_ac_kw": 11.0, "max_dc_kw": 60 },
+  { "brand": "Mercedes-Benz", "model": "E 300 e", "year": 2020, "battery_kwh": 13.5, "max_ac_kw": 7.4, "max_dc_kw": 0 },
+  { "brand": "Mercedes-Benz", "model": "E 300 e", "year": 2021, "battery_kwh": 13.5, "max_ac_kw": 7.4, "max_dc_kw": 0 },
+  { "brand": "Mercedes-Benz", "model": "E 300 e", "year": 2022, "battery_kwh": 13.5, "max_ac_kw": 7.4, "max_dc_kw": 0 },
+  { "brand": "Mercedes-Benz", "model": "E 300 e", "year": 2023, "battery_kwh": 13.5, "max_ac_kw": 7.4, "max_dc_kw": 0 },
+  { "brand": "Mercedes-Benz", "model": "S 580 e", "year": 2023, "battery_kwh": 28.6, "max_ac_kw": 11.0, "max_dc_kw": 60 },
+  { "brand": "Mercedes-Benz", "model": "S 580 e", "year": 2024, "battery_kwh": 28.6, "max_ac_kw": 11.0, "max_dc_kw": 60 },
+  { "brand": "Mercedes-Benz", "model": "S 580 e", "year": 2025, "battery_kwh": 28.6, "max_ac_kw": 11.0, "max_dc_kw": 60 },
+  { "brand": "Mercedes-Benz", "model": "S 580 e", "year": 2026, "battery_kwh": 28.6, "max_ac_kw": 11.0, "max_dc_kw": 60 },
 
 
 
@@ -715,14 +743,14 @@
 
 
 
-  { "brand": "VW", "model": "Golf GTE", "year": 2020, "battery_kwh": 8.7, "max_ac_kw": 3.6, "max_dc_kw": 0 },
-  { "brand": "VW", "model": "ID.4", "year": 2024, "battery_kwh": 77.0, "max_ac_kw": 11.0, "max_dc_kw": 135 },
-  { "brand": "VW", "model": "ID.4", "year": 2025, "battery_kwh": 77.0, "max_ac_kw": 11.0, "max_dc_kw": 135 },
-  { "brand": "VW", "model": "ID.4", "year": 2026, "battery_kwh": 77.0, "max_ac_kw": 11.0, "max_dc_kw": 135 },
-  { "brand": "VW", "model": "ID.Buzz", "year": 2024, "battery_kwh": 77.0, "max_ac_kw": 11.0, "max_dc_kw": 170 },
-  { "brand": "VW", "model": "ID.Buzz", "year": 2025, "battery_kwh": 77.0, "max_ac_kw": 11.0, "max_dc_kw": 170 },
-  { "brand": "VW", "model": "ID.Buzz", "year": 2026, "battery_kwh": 77.0, "max_ac_kw": 11.0, "max_dc_kw": 170 },
-  { "brand": "VW", "model": "Tiguan eHybrid", "year": 2026, "battery_kwh": 19.7, "max_ac_kw": 11.0, "max_dc_kw": 40 },
+  { "brand": "volkswagen", "model": "Golf GTE", "year": 2020, "battery_kwh": 8.7, "max_ac_kw": 3.6, "max_dc_kw": 0 },
+  { "brand": "volkswagen", "model": "ID.4", "year": 2024, "battery_kwh": 77.0, "max_ac_kw": 11.0, "max_dc_kw": 135 },
+  { "brand": "volkswagen", "model": "ID.4", "year": 2025, "battery_kwh": 77.0, "max_ac_kw": 11.0, "max_dc_kw": 135 },
+  { "brand": "volkswagen", "model": "ID.4", "year": 2026, "battery_kwh": 77.0, "max_ac_kw": 11.0, "max_dc_kw": 135 },
+  { "brand": "volkswagen", "model": "ID.Buzz", "year": 2024, "battery_kwh": 77.0, "max_ac_kw": 11.0, "max_dc_kw": 170 },
+  { "brand": "volkswagen", "model": "ID.Buzz", "year": 2025, "battery_kwh": 77.0, "max_ac_kw": 11.0, "max_dc_kw": 170 },
+  { "brand": "volkswagen", "model": "ID.Buzz", "year": 2026, "battery_kwh": 77.0, "max_ac_kw": 11.0, "max_dc_kw": 170 },
+  { "brand": "volkswagen", "model": "Tiguan eHybrid", "year": 2026, "battery_kwh": 19.7, "max_ac_kw": 11.0, "max_dc_kw": 40 },
 
 
 
@@ -811,5 +839,75 @@
   { "brand": "MG", "model": "Cyberster", "year": 2026, "battery_kwh": 77.0, "max_ac_kw": 11.0, "max_dc_kw": 144 },
   { "brand": "MG", "model": "ZS EV", "year": 2024, "battery_kwh": 51.1, "max_ac_kw": 6.6, "max_dc_kw": 92 },
   { "brand": "MG", "model": "ZS EV", "year": 2025, "battery_kwh": 51.1, "max_ac_kw": 6.6, "max_dc_kw": 92 },
-  { "brand": "MG", "model": "ZS EV", "year": 2026, "battery_kwh": 51.1, "max_ac_kw": 6.6, "max_dc_kw": 92 }
+  { "brand": "MG", "model": "ZS EV", "year": 2026, "battery_kwh": 51.1, "max_ac_kw": 6.6, "max_dc_kw": 92 },
+
+
+
+  { "brand": "Lamborghini", "model": "Revuelto", "year": 2024, "battery_kwh": 3.8, "max_ac_kw": 7.0, "max_dc_kw": 0 },
+  { "brand": "Lamborghini", "model": "Revuelto", "year": 2025, "battery_kwh": 3.8, "max_ac_kw": 7.0, "max_dc_kw": 0 },
+  { "brand": "Lamborghini", "model": "Revuelto", "year": 2026, "battery_kwh": 3.8, "max_ac_kw": 7.0, "max_dc_kw": 0 },
+  { "brand": "Lamborghini", "model": "Urus SE", "year": 2025, "battery_kwh": 25.9, "max_ac_kw": 7.2, "max_dc_kw": 0 },
+  { "brand": "Lamborghini", "model": "Urus SE", "year": 2026, "battery_kwh": 25.9, "max_ac_kw": 7.2, "max_dc_kw": 0 },
+
+
+
+  { "brand": "Ferrari", "model": "SF90 Stradale", "year": 2021, "battery_kwh": 7.9, "max_ac_kw": 3.5, "max_dc_kw": 0 },
+  { "brand": "Ferrari", "model": "SF90 Stradale", "year": 2022, "battery_kwh": 7.9, "max_ac_kw": 3.5, "max_dc_kw": 0 },
+  { "brand": "Ferrari", "model": "SF90 Stradale", "year": 2023, "battery_kwh": 7.9, "max_ac_kw": 3.5, "max_dc_kw": 0 },
+  { "brand": "Ferrari", "model": "SF90 Stradale", "year": 2024, "battery_kwh": 7.9, "max_ac_kw": 3.5, "max_dc_kw": 0 },
+  { "brand": "Ferrari", "model": "SF90 Stradale", "year": 2025, "battery_kwh": 7.9, "max_ac_kw": 3.5, "max_dc_kw": 0 },
+  { "brand": "Ferrari", "model": "296 GTB", "year": 2022, "battery_kwh": 7.45, "max_ac_kw": 3.7, "max_dc_kw": 0 },
+  { "brand": "Ferrari", "model": "296 GTB", "year": 2023, "battery_kwh": 7.45, "max_ac_kw": 3.7, "max_dc_kw": 0 },
+  { "brand": "Ferrari", "model": "296 GTB", "year": 2024, "battery_kwh": 7.45, "max_ac_kw": 3.7, "max_dc_kw": 0 },
+  { "brand": "Ferrari", "model": "296 GTB", "year": 2025, "battery_kwh": 7.45, "max_ac_kw": 3.7, "max_dc_kw": 0 },
+  { "brand": "Ferrari", "model": "296 GTB", "year": 2026, "battery_kwh": 7.45, "max_ac_kw": 3.7, "max_dc_kw": 0 },
+
+
+
+  { "brand": "McLaren", "model": "Artura", "year": 2022, "battery_kwh": 7.4, "max_ac_kw": 3.7, "max_dc_kw": 0 },
+  { "brand": "McLaren", "model": "Artura", "year": 2023, "battery_kwh": 7.4, "max_ac_kw": 3.7, "max_dc_kw": 0 },
+  { "brand": "McLaren", "model": "Artura", "year": 2024, "battery_kwh": 7.4, "max_ac_kw": 3.7, "max_dc_kw": 0 },
+  { "brand": "McLaren", "model": "Artura", "year": 2025, "battery_kwh": 7.4, "max_ac_kw": 3.7, "max_dc_kw": 0 },
+  { "brand": "McLaren", "model": "Artura", "year": 2026, "battery_kwh": 7.4, "max_ac_kw": 3.7, "max_dc_kw": 0 },
+
+
+
+  { "brand": "Citroën", "model": "ë-C4", "year": 2023, "battery_kwh": 50.0, "max_ac_kw": 11.0, "max_dc_kw": 100 },
+  { "brand": "Citroën", "model": "ë-C4", "year": 2024, "battery_kwh": 50.0, "max_ac_kw": 11.0, "max_dc_kw": 100 },
+  { "brand": "Citroën", "model": "ë-C4", "year": 2025, "battery_kwh": 50.0, "max_ac_kw": 11.0, "max_dc_kw": 100 },
+  { "brand": "Citroën", "model": "ë-C4", "year": 2026, "battery_kwh": 50.0, "max_ac_kw": 11.0, "max_dc_kw": 100 },
+
+
+
+  { "brand": "DS", "model": "7 Crossback E-Tense", "year": 2020, "battery_kwh": 13.2, "max_ac_kw": 7.4, "max_dc_kw": 0 },
+  { "brand": "DS", "model": "7 Crossback E-Tense", "year": 2021, "battery_kwh": 13.2, "max_ac_kw": 7.4, "max_dc_kw": 0 },
+  { "brand": "DS", "model": "7 Crossback E-Tense", "year": 2022, "battery_kwh": 13.2, "max_ac_kw": 7.4, "max_dc_kw": 0 },
+
+
+
+  { "brand": "Neta", "model": "Aya", "year": 2024, "battery_kwh": 40.7, "max_ac_kw": 6.6, "max_dc_kw": 45 },
+  { "brand": "Neta", "model": "Aya", "year": 2025, "battery_kwh": 40.7, "max_ac_kw": 6.6, "max_dc_kw": 45 },
+  { "brand": "Neta", "model": "Aya", "year": 2026, "battery_kwh": 40.7, "max_ac_kw": 6.6, "max_dc_kw": 45 },
+  { "brand": "Neta", "model": "X", "year": 2024, "battery_kwh": 62.0, "max_ac_kw": 6.6, "max_dc_kw": 65 },
+  { "brand": "Neta", "model": "X", "year": 2025, "battery_kwh": 62.0, "max_ac_kw": 6.6, "max_dc_kw": 65 },
+  { "brand": "Neta", "model": "X", "year": 2026, "battery_kwh": 62.0, "max_ac_kw": 6.6, "max_dc_kw": 65 },
+  { "brand": "Neta", "model": "GT", "year": 2024, "battery_kwh": 74.5, "max_ac_kw": 11.0, "max_dc_kw": 100 },
+  { "brand": "Neta", "model": "GT", "year": 2025, "battery_kwh": 74.5, "max_ac_kw": 11.0, "max_dc_kw": 100 },
+  { "brand": "Neta", "model": "GT", "year": 2026, "battery_kwh": 74.5, "max_ac_kw": 11.0, "max_dc_kw": 100 },
+
+
+
+  { "brand": "Seres", "model": "3", "year": 2023, "battery_kwh": 52.7, "max_ac_kw": 6.6, "max_dc_kw": 50 },
+  { "brand": "Seres", "model": "3", "year": 2024, "battery_kwh": 52.7, "max_ac_kw": 6.6, "max_dc_kw": 50 },
+  { "brand": "Seres", "model": "3", "year": 2025, "battery_kwh": 52.7, "max_ac_kw": 6.6, "max_dc_kw": 50 },
+  { "brand": "Seres", "model": "3", "year": 2026, "battery_kwh": 52.7, "max_ac_kw": 6.6, "max_dc_kw": 50 },
+  { "brand": "Seres", "model": "5 EVR", "year": 2023, "battery_kwh": 40.0, "max_ac_kw": 11.0, "max_dc_kw": 100 },
+  { "brand": "Seres", "model": "5 EVR", "year": 2024, "battery_kwh": 40.0, "max_ac_kw": 11.0, "max_dc_kw": 100 },
+  { "brand": "Seres", "model": "5 EVR", "year": 2025, "battery_kwh": 40.0, "max_ac_kw": 11.0, "max_dc_kw": 100 },
+  { "brand": "Seres", "model": "5 EVR", "year": 2026, "battery_kwh": 40.0, "max_ac_kw": 11.0, "max_dc_kw": 100 },
+  { "brand": "Seres", "model": "5 EV", "year": 2024, "battery_kwh": 90.0, "max_ac_kw": 11.0, "max_dc_kw": 100 },
+  { "brand": "Seres", "model": "5 EV", "year": 2025, "battery_kwh": 90.0, "max_ac_kw": 11.0, "max_dc_kw": 100 },
+  { "brand": "Seres", "model": "5 EV", "year": 2026, "battery_kwh": 90.0, "max_ac_kw": 11.0, "max_dc_kw": 100 }
+
+
 ]
