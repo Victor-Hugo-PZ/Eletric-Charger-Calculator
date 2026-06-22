@@ -20,6 +20,16 @@ class Vehicle(Base):
     battery_kwh = Column(Float)
     max_ac_kw = Column(Float)
     max_dc_kw = Column(Float)
+    range_km = Column(Float)
+    power_hp = Column(Integer)
+    drive = Column(String)
+    seats = Column(Integer)
+    body = Column(String)
+    weight_kg = Column(Integer)
+    country_of_origin = Column(String)
+    connector_ac = Column(String)
+    connector_dc = Column(String)
+    type = Column(String)
     simulations = relationship("Simulation", back_populates="vehicle")
 
     def to_dict(self):
@@ -30,7 +40,17 @@ class Vehicle(Base):
             "year": self.year,
             "battery_kwh": self.battery_kwh,
             "max_ac_kw": self.max_ac_kw,
-            "max_dc_kw": self.max_dc_kw
+            "max_dc_kw": self.max_dc_kw,
+            "range_km": self.range_km,
+            "power_hp": self.power_hp,
+            "drive": self.drive,
+            "seats": self.seats,
+            "body": self.body,
+            "weight_kg": self.weight_kg,
+            "country_of_origin": self.country_of_origin,
+            "connector_ac": self.connector_ac,
+            "connector_dc": self.connector_dc,
+            "type": self.type
         }
 
 class Simulation(Base):

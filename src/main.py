@@ -48,6 +48,7 @@ class SimulationResponse(BaseModel):
     total_time_minutes: float
     total_cost: float
     energy_added_kwh: float
+    range_added_km: float
 
 @app.get("/api/cars")
 def get_cars(db: Session = Depends(get_db)):
@@ -102,6 +103,16 @@ def simulate(request: SimulationRequest, db: Session = Depends(get_db)):
     total_time_minutes = total_time_hours * 60
     total_cost = energy_total * request.tarifa_kwh_reais
 
+    # Calculate range added
+    if vehicle.range_km and vehicle.range_km > 0:
+        if request.porcentagem_bateria_atual >= request.porcentagem_bateria_desejada:
+            range_added_km = 0
+        else:
+            range_added_km = ((request.porcentagem_bateria_desejada - request.porcentagem_bateria_atual) / 100) * vehicle.range_km
+            range_added_km = round(range_added_km)
+    else:
+        range_added_km = 0
+
     # Salvar no histórico
     db_simulation = Simulation(
         vehicle_id=vehicle.id,
@@ -117,7 +128,8 @@ def simulate(request: SimulationRequest, db: Session = Depends(get_db)):
     return SimulationResponse(
         total_time_minutes=round(total_time_minutes, 2),
         total_cost=round(total_cost, 2),
-        energy_added_kwh=round(energy_total, 2)
+        energy_added_kwh=round(energy_total, 2),
+        range_added_km=range_added_km
     )
 
 if __name__ == "__main__":

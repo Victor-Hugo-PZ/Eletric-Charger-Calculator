@@ -39,7 +39,17 @@ def seed():
                     year=car["year"],
                     battery_kwh=car["battery_kwh"],
                     max_ac_kw=car["max_ac_kw"],
-                    max_dc_kw=car["max_dc_kw"]
+                    max_dc_kw=car["max_dc_kw"],
+                    range_km=car["range_km"],
+                    power_hp=car["power_hp"],
+                    drive=car["drive"],
+                    seats=car["seats"],
+                    body=car["body"],
+                    weight_kg=car["weight_kg"],
+                    country_of_origin=car["country_of_origin"],
+                    connector_ac=car["connector_ac"],
+                    connector_dc=car["connector_dc"],
+                    type=car["type"]
                 )
                 db.add(db_car)
                 added_count += 1

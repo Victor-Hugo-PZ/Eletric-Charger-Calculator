@@ -104,6 +104,10 @@
                     <div>
                         <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Carregador (kW)</label>
                         <input type="number" id="chargerPower" value="30" class="w-full p-4 bg-gray-50 dark:bg-darkBg border border-gray-200 dark:border-darkBorder rounded-xl focus:ring-2 focus:ring-blue-500 focus:outline-none text-lg text-gray-800 dark:text-gray-100">
+                        <div id="chargerInfo" class="mt-2 space-y-1">
+                            <p id="chargerWarning" class="text-xs text-amber-600 dark:text-amber-400 hidden"></p>
+                            <p id="chargerConnector" class="text-xs text-gray-500 dark:text-gray-400"></p>
+                        </div>
                     </div>
                     <div>
                         <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Tarifa (R$/kWh)</label>
@@ -120,6 +124,7 @@
         <!-- Resultado -->
         <div id="resultCard" class="card mt-6 hidden border-2 border-blue-100 dark:border-blue-900/50 bg-blue-50 dark:bg-blue-900/20">
             <h2 class="text-xl font-bold text-blue-800 dark:text-blue-300 mb-4">Resultado da Simulação</h2>
+            <div id="simulationMessage" class="mb-4 hidden"></div>
             <div class="grid grid-cols-1 gap-4">
                 <div class="bg-white dark:bg-darkSurface p-4 rounded-xl shadow-sm">
                     <p class="text-gray-500 dark:text-gray-400 text-sm">Tempo Estimado</p>
@@ -133,7 +138,71 @@
                     <p class="text-gray-500 dark:text-gray-400 text-sm">Energia Adicionada</p>
                     <p id="resEnergy" class="text-2xl font-bold text-blue-600 dark:text-blue-400">-- kWh</p>
                 </div>
+                <div id="resRangeContainer" class="bg-white dark:bg-darkSurface p-4 rounded-xl shadow-sm hidden">
+                    <p class="text-gray-500 dark:text-gray-400 text-sm">Autonomia Adicionada</p>
+                    <p id="resRange" class="text-2xl font-bold text-purple-600 dark:text-purple-400">-- km</p>
+                </div>
             </div>
+
+            <!-- Accordion for Technical Specs - Inside Result Card -->
+            <section id="specsSection" class="mt-4">
+                <button id="specsToggle" disabled class="w-full flex justify-between items-center p-4 bg-white dark:bg-darkSurface border border-blue-100 dark:border-blue-900/50 rounded-2xl text-left transition-all active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed disabled:active:scale-100">
+                    <span id="specsToggleText" class="text-sm font-semibold text-gray-700 dark:text-gray-200">Ver especificações técnicas do veículo</span>
+                    <svg id="specsChevron" class="w-5 h-5 transition-transform duration-300 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </button>
+                <div id="specsContent" class="overflow-hidden transition-all duration-300 max-h-0">
+                    <div class="pt-3 grid grid-cols-2 gap-3">
+                        <div class="space-y-1">
+                            <span class="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wider">Tipo</span>
+                            <p id="specType" class="text-sm font-medium text-gray-800 dark:text-gray-200"></p>
+                        </div>
+                        <div class="space-y-1">
+                            <span class="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wider">Potência</span>
+                            <p id="specPower" class="text-sm font-medium text-gray-800 dark:text-gray-200"></p>
+                        </div>
+                        <div class="space-y-1">
+                            <span class="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wider">Carroceria</span>
+                            <p id="specBody" class="text-sm font-medium text-gray-800 dark:text-gray-200"></p>
+                        </div>
+                        <div class="space-y-1">
+                            <span class="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wider">Tração</span>
+                            <p id="specDrive" class="text-sm font-medium text-gray-800 dark:text-gray-200"></p>
+                        </div>
+                        <div class="space-y-1">
+                            <span class="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wider">Peso</span>
+                            <p id="specWeight" class="text-sm font-medium text-gray-800 dark:text-gray-200"></p>
+                        </div>
+                        <div class="space-y-1">
+                            <span class="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wider">Lugares</span>
+                            <p id="specSeats" class="text-sm font-medium text-gray-800 dark:text-gray-200"></p>
+                        </div>
+                        <div class="space-y-1">
+                            <span class="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wider">Origem</span>
+                            <p id="specOrigin" class="text-sm font-medium text-gray-800 dark:text-gray-200"></p>
+                        </div>
+                        <div class="space-y-1">
+                            <span class="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wider">Autonomia</span>
+                            <p id="specRange" class="text-sm font-medium text-gray-800 dark:text-gray-200"></p>
+                        </div>
+                        <div class="space-y-1">
+                            <span class="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wider">Conector AC</span>
+                            <p id="specConnectorAc" class="text-sm font-medium text-gray-800 dark:text-gray-200"></p>
+                        </div>
+                        <div class="space-y-1">
+                            <span class="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wider">Conector DC</span>
+                            <p id="specConnectorDc" class="text-sm font-medium text-gray-800 dark:text-gray-200"></p>
+                        </div>
+                        <div class="space-y-1">
+                            <span class="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wider">Max AC (kW)</span>
+                            <p id="specMaxAc" class="text-sm font-medium text-gray-800 dark:text-gray-200"></p>
+                        </div>
+                        <div class="space-y-1">
+                            <span class="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wider">Max DC (kW)</span>
+                            <p id="specMaxDc" class="text-sm font-medium text-gray-800 dark:text-gray-200"></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </div>
     </div>
 
@@ -207,8 +276,24 @@
         const finalSoc = document.getElementById('finalSoc');
         const initialSocLabel = document.getElementById('initialSocLabel');
         const finalSocLabel = document.getElementById('finalSocLabel');
+        const chargerPowerInput = document.getElementById('chargerPower');
+        const chargerWarning = document.getElementById('chargerWarning');
+        const chargerConnector = document.getElementById('chargerConnector');
         const simulateBtn = document.getElementById('simulateBtn');
         const resultCard = document.getElementById('resultCard');
+        const specsSection = document.getElementById('specsSection');
+        const specsToggle = document.getElementById('specsToggle');
+        const specsContent = document.getElementById('specsContent');
+        const specsChevron = document.getElementById('specsChevron');
+        const specPower = document.getElementById('specPower');
+        const specBody = document.getElementById('specBody');
+        const specDrive = document.getElementById('specDrive');
+        const specWeight = document.getElementById('specWeight');
+        const specSeats = document.getElementById('specSeats');
+        const specOrigin = document.getElementById('specOrigin');
+        const specsToggleText = document.getElementById('specsToggleText');
+
+        let specsOpen = false;
 
         // Modal Functions
         function openSheet(title, options, onSelect) {
@@ -291,14 +376,143 @@
                 selectionState.car_id = id;
                 selectionState.year = year;
                 selectedYear.textContent = year;
+                updateSpecs();
+                updateChargerInfo();
             });
         };
+
+        // Helper to update specs and button state
+        function updateSpecs() {
+            if (!selectionState.car_id) {
+                specsToggle.disabled = true;
+                specsToggle.className = 'w-full flex justify-between items-center p-4 bg-white dark:bg-darkSurface border border-blue-100 dark:border-blue-900/50 rounded-2xl text-left transition-all active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed disabled:active:scale-100';
+                specsToggleText.className = 'text-sm font-semibold text-gray-700 dark:text-gray-200';
+                specsChevron.className = 'w-5 h-5 transition-transform duration-300 text-gray-400';
+                if (specsOpen) {
+                    specsOpen = false;
+                    specsContent.style.maxHeight = '0';
+                    specsChevron.style.transform = 'rotate(0deg)';
+                }
+                return;
+            }
+
+            const car = carsData.find(c => c.id === selectionState.car_id);
+            if (!car) return;
+
+            specsToggle.disabled = false;
+            specsToggle.className = 'w-full flex justify-between items-center p-4 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800/50 rounded-2xl text-left transition-all active:scale-[0.98] hover:bg-blue-100 dark:hover:bg-blue-900/30';
+            specsToggleText.className = 'text-sm font-semibold text-blue-600 dark:text-blue-400';
+            specsChevron.className = 'w-5 h-5 transition-transform duration-300 text-blue-500 dark:text-blue-400';
+            
+            specType.textContent = car.type;
+            specPower.textContent = `${car.power_hp} cv`;
+            specBody.textContent = car.body.charAt(0).toUpperCase() + car.body.slice(1);
+            specDrive.textContent = car.drive;
+            specWeight.textContent = `${car.weight_kg} kg`;
+            specSeats.textContent = car.seats;
+            specOrigin.textContent = car.country_of_origin;
+            specRange.textContent = `${car.range_km} km`;
+            let acConnector = car.connector_ac;
+            if (acConnector === 'GB/T') acConnector = 'Tipo 2';
+            specConnectorAc.textContent = acConnector;
+            let dcConnector = car.connector_dc;
+            if (dcConnector === 'GB/T') dcConnector = 'CCS2';
+            specConnectorDc.textContent = dcConnector || '-';
+            specMaxAc.textContent = car.max_ac_kw > 0 ? car.max_ac_kw : '-';
+            specMaxDc.textContent = car.max_dc_kw > 0 ? car.max_dc_kw : '-';
+        }
+
+        // Helper to update charger info (warning + connector)
+        function updateChargerInfo() {
+            const displayPower = parseFloat(chargerPowerInput.value) || 0;
+            const selectedCar = carsData.find(c => c.id === selectionState.car_id);
+
+            if (!selectedCar) {
+                chargerWarning.classList.add('hidden');
+                chargerConnector.textContent = '';
+                return;
+            }
+
+            let calculationPower = displayPower;
+            let maxPower = 0;
+            let connector = '';
+
+            if (displayPower <= 22) {
+                maxPower = selectedCar.max_ac_kw;
+                connector = selectedCar.connector_ac;
+                calculationPower = Math.min(displayPower, maxPower);
+            } else {
+                maxPower = selectedCar.max_dc_kw;
+                connector = selectedCar.connector_dc;
+                calculationPower = Math.min(displayPower, maxPower);
+            }
+
+            // Build info text
+            let lines = ['Limites do veículo:'];
+            if (selectedCar.max_ac_kw > 0) {
+                let acConnector = selectedCar.connector_ac;
+                if (acConnector === 'GB/T') acConnector = 'Tipo 2';
+                lines.push(`AC: ${selectedCar.max_ac_kw} kW (${acConnector})`);
+            }
+            if (selectedCar.max_dc_kw > 0) {
+                let dcConnector = selectedCar.connector_dc;
+                if (dcConnector === 'GB/T') dcConnector = 'CCS2';
+                lines.push(`DC: ${selectedCar.max_dc_kw} kW (${dcConnector})`);
+            }
+
+            // Update warning and info
+            if (lines.length > 1) {
+                chargerWarning.innerHTML = lines.join('<br>');
+                if (displayPower > maxPower) {
+                    chargerWarning.classList.remove('hidden', 'text-gray-600', 'dark:text-gray-400');
+                    chargerWarning.classList.add('text-amber-600', 'dark:text-amber-400');
+                } else {
+                    chargerWarning.classList.remove('hidden', 'text-amber-600', 'dark:text-amber-400');
+                    chargerWarning.classList.add('text-gray-600', 'dark:text-gray-400');
+                }
+            } else {
+                chargerWarning.classList.add('hidden');
+            }
+
+            // Update connector
+            if (connector) {
+                let displayConnector = connector;
+                if (displayPower <= 22 && displayConnector === 'GB/T') {
+                    displayConnector = 'Tipo 2';
+                } else if (displayPower > 22 && displayConnector === 'GB/T') {
+                    displayConnector = 'CCS2';
+                }
+                chargerConnector.textContent = `Conector da Simulação: ${displayConnector}`;
+            } else {
+                chargerConnector.textContent = '';
+            }
+
+            // Store calculation value for later use in simulation
+            chargerPowerInput.dataset.calculationValue = calculationPower;
+        }
+
+        // Toggle specs accordion
+        specsToggle.onclick = () => {
+            specsOpen = !specsOpen;
+            if (specsOpen) {
+                specsContent.style.maxHeight = specsContent.scrollHeight + 'px';
+                specsChevron.style.transform = 'rotate(180deg)';
+            } else {
+                specsContent.style.maxHeight = '0';
+                specsChevron.style.transform = 'rotate(0deg)';
+            }
+        };
+
+        // Listen to charger power input changes
+        chargerPowerInput.addEventListener('input', updateChargerInfo);
 
         // Fetch Inicial
         async function fetchCars() {
             try {
                 const response = await fetch('/api/cars');
                 carsData = await response.json();
+                updateSpecs();
+                updateChargerInfo();
             } catch (error) {
                 console.error('Erro ao buscar carros:', error);
                 alert('Erro ao carregar dados dos veículos.');
@@ -330,11 +544,82 @@
                 return;
             }
 
+            // Find the selected vehicle to get range_km
+            const selectedVehicle = carsData.find(car => car.id === parseInt(carId));
+            const displayPower = parseFloat(chargerPowerInput.value) || 0;
+            const simulationMessageEl = document.getElementById('simulationMessage');
+            
+            // Check if power is supported and prepare message
+            let maxPower = 0;
+            if (displayPower <= 22) {
+                maxPower = selectedVehicle.max_ac_kw;
+            } else {
+                maxPower = selectedVehicle.max_dc_kw;
+            }
+            
+            let message = '';
+            let isUnsupported = false;
+            
+            if (maxPower === 0) {
+                isUnsupported = true;
+                message = `O veículo não suporta este tipo de carregador (${displayPower <= 22 ? 'AC' : 'DC'}). `;
+                if (selectedVehicle.max_ac_kw > 0) {
+                    let acConnector = selectedVehicle.connector_ac === 'GB/T' ? 'Tipo 2' : selectedVehicle.connector_ac;
+                    message += `Ele suporta apenas até ${selectedVehicle.max_ac_kw} kW em AC (${acConnector})`;
+                    if (selectedVehicle.max_dc_kw > 0) {
+                        let dcConnector = selectedVehicle.connector_dc === 'GB/T' ? 'CCS2' : selectedVehicle.connector_dc;
+                        message += ` e até ${selectedVehicle.max_dc_kw} kW em DC (${dcConnector})`;
+                    }
+                    message += '.';
+                } else if (selectedVehicle.max_dc_kw > 0) {
+                    let dcConnector = selectedVehicle.connector_dc === 'GB/T' ? 'CCS2' : selectedVehicle.connector_dc;
+                    message += `Ele suporta apenas até ${selectedVehicle.max_dc_kw} kW em DC (${dcConnector}).`;
+                }
+            } else if (displayPower > maxPower) {
+                message = `O veículo não suporta ${displayPower} kW. `;
+                if (selectedVehicle.max_ac_kw > 0) {
+                    let acConnector = selectedVehicle.connector_ac === 'GB/T' ? 'Tipo 2' : selectedVehicle.connector_ac;
+                    message += `Ele suporta até ${selectedVehicle.max_ac_kw} kW em AC (${acConnector})`;
+                    if (selectedVehicle.max_dc_kw > 0) {
+                        let dcConnector = selectedVehicle.connector_dc === 'GB/T' ? 'CCS2' : selectedVehicle.connector_dc;
+                        message += ` e até ${selectedVehicle.max_dc_kw} kW em DC (${dcConnector})`;
+                    }
+                    message += `. A simulação usará ${parseFloat(chargerPowerInput.dataset.calculationValue) || maxPower} kW.`;
+                } else if (selectedVehicle.max_dc_kw > 0) {
+                    let dcConnector = selectedVehicle.connector_dc === 'GB/T' ? 'CCS2' : selectedVehicle.connector_dc;
+                    message += `Ele suporta até ${selectedVehicle.max_dc_kw} kW em DC (${dcConnector}). A simulação usará ${parseFloat(chargerPowerInput.dataset.calculationValue) || maxPower} kW.`;
+                }
+            }
+
+            // Handle unsupported charger type before sending request
+            if (isUnsupported) {
+                simulateBtn.disabled = true;
+                simulateBtn.textContent = 'Calculando...'; // Just to show feedback
+                setTimeout(() => {
+                    simulateBtn.disabled = false;
+                    simulateBtn.textContent = 'Simular Recarga';
+                    
+                    // Show message
+                    simulationMessageEl.innerHTML = `<div class="bg-red-50 dark:bg-red-900/30 border border-red-200 dark:border-red-800/50 rounded-xl p-4 text-red-800 dark:text-red-200">${message}</div>`;
+                    simulationMessageEl.classList.remove('hidden');
+                    
+                    // Hide result grid and specs
+                    resultCard.querySelector('.grid').classList.add('hidden');
+                    specsSection.classList.add('hidden');
+                    
+                    resultCard.classList.remove('hidden');
+                    updateSpecs();
+                    updateChargerInfo();
+                    resultCard.scrollIntoView({ behavior: 'smooth' });
+                }, 200);
+                return;
+            }
+
             const data = {
                 car_id: parseInt(carId),
                 porcentagem_bateria_atual: parseFloat(initialSoc.value),
                 porcentagem_bateria_desejada: parseFloat(finalSoc.value),
-                potencia_carregador_kw: parseFloat(document.getElementById('chargerPower').value),
+                potencia_carregador_kw: parseFloat(chargerPowerInput.dataset.calculationValue) || parseFloat(chargerPowerInput.value),
                 tarifa_kwh_reais: parseFloat(document.getElementById('tariff').value)
             };
 
@@ -350,10 +635,41 @@
 
                 if (!response.ok) {
                     const err = await response.json();
-                    throw new Error(err.detail || 'Erro na simulação');
+                    // Show error in simulationMessage
+                    simulationMessageEl.innerHTML = `<div class="bg-red-50 dark:bg-red-900/30 border border-red-200 dark:border-red-800/50 rounded-xl p-4 text-red-800 dark:text-red-200">${err.detail || 'Erro na simulação'}</div>`;
+                    simulationMessageEl.classList.remove('hidden');
+                    resultCard.querySelector('.grid').classList.add('hidden');
+                    specsSection.classList.add('hidden');
+                    resultCard.classList.remove('hidden');
+                    updateSpecs();
+                    updateChargerInfo();
+                    resultCard.scrollIntoView({ behavior: 'smooth' });
+                    return;
                 }
 
                 const res = await response.json();
+                
+                // Update simulation message
+                if (message) {
+                    if (isUnsupported) {
+                        simulationMessageEl.innerHTML = `<div class="bg-red-50 dark:bg-red-900/30 border border-red-200 dark:border-red-800/50 rounded-xl p-4 text-red-800 dark:text-red-200">${message}</div>`;
+                    } else {
+                        simulationMessageEl.innerHTML = `<div class="bg-amber-50 dark:bg-amber-900/30 border border-amber-200 dark:border-amber-800/50 rounded-xl p-4 text-amber-800 dark:text-amber-200">${message}</div>`;
+                    }
+                    simulationMessageEl.classList.remove('hidden');
+                } else {
+                    simulationMessageEl.classList.add('hidden');
+                }
+                
+                // If unsupported, don't show the rest of the results
+                if (isUnsupported) {
+                    // Hide the result grid
+                    resultCard.querySelector('.grid').classList.add('hidden');
+                    specsSection.classList.add('hidden');
+                } else {
+                    resultCard.querySelector('.grid').classList.remove('hidden');
+                    specsSection.classList.remove('hidden');
+                }
                 
                 // Formatar tempo
                 const h = Math.floor(res.total_time_minutes / 60);
@@ -361,8 +677,21 @@
                 document.getElementById('resTime').textContent = `${h}h ${m}min`;
                 document.getElementById('resCost').textContent = `R$ ${res.total_cost.toFixed(2)}`;
                 document.getElementById('resEnergy').textContent = `${res.energy_added_kwh.toFixed(1)} kWh`;
+
+                // Handle range added
+                const resRangeContainer = document.getElementById('resRangeContainer');
+                const resRange = document.getElementById('resRange');
+                
+                if (selectedVehicle && selectedVehicle.range_km && selectedVehicle.range_km > 0) {
+                    resRange.textContent = `+ ${res.range_added_km} km`;
+                    resRangeContainer.classList.remove('hidden');
+                } else {
+                    resRangeContainer.classList.add('hidden');
+                }
                 
                 resultCard.classList.remove('hidden');
+                updateSpecs();
+                updateChargerInfo();
                 resultCard.scrollIntoView({ behavior: 'smooth' });
             } catch (error) {
                 alert(error.message);
