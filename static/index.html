@@ -34,6 +34,8 @@
         #bottomSheet.active { transform: translateY(0); }
         #overlay { opacity: 0; pointer-events: none; transition: opacity 0.3s ease-out; }
         #overlay.active { opacity: 1; pointer-events: auto; }
+        /* Economy Bottom Sheet Styles */
+        #economyBottomSheet { transform: translateY(100%); transition: transform 0.3s ease-out, background-color 0.3s ease; }
         .selection-item { border-bottom: 1px solid #f3f4f6; transition: background-color 0.2s; }
         .dark .selection-item { border-bottom-color: #2D2D2D; }
         .selection-item:last-child { border-bottom: none; }
@@ -95,9 +97,9 @@
 
                 <div class="space-y-2">
                     <div class="flex justify-between">
-                        <label class="text-sm font-medium text-gray-700 dark:text-gray-300">SOC Desejado: <span id="finalSocLabel" class="font-bold text-blue-600 dark:text-blue-400">80%</span></label>
+                        <label class="text-sm font-medium text-gray-700 dark:text-gray-300">SOC Desejado: <span id="finalSocLabel" class="font-bold text-blue-600 dark:text-blue-400">100%</span></label>
                     </div>
-                    <input type="range" id="finalSoc" min="0" max="100" value="80" class="slider">
+                    <input type="range" id="finalSoc" min="0" max="100" value="100" class="slider">
                 </div>
 
                 <div class="grid grid-cols-2 gap-4">
@@ -125,7 +127,7 @@
         <div id="resultCard" class="card mt-6 hidden border-2 border-blue-100 dark:border-blue-900/50 bg-blue-50 dark:bg-blue-900/20">
             <h2 class="text-xl font-bold text-blue-800 dark:text-blue-300 mb-4">Resultado da Simulação</h2>
             <div id="simulationMessage" class="mb-4 hidden"></div>
-            <div class="grid grid-cols-1 gap-4">
+            <div class="grid grid-cols-2 gap-4">
                 <div class="bg-white dark:bg-darkSurface p-4 rounded-xl shadow-sm">
                     <p class="text-gray-500 dark:text-gray-400 text-sm">Tempo Estimado</p>
                     <p id="resTime" class="text-2xl font-bold text-gray-800 dark:text-gray-100">--</p>
@@ -141,6 +143,15 @@
                 <div id="resRangeContainer" class="bg-white dark:bg-darkSurface p-4 rounded-xl shadow-sm hidden">
                     <p class="text-gray-500 dark:text-gray-400 text-sm">Autonomia Adicionada</p>
                     <p id="resRange" class="text-2xl font-bold text-purple-600 dark:text-purple-400">-- km</p>
+                </div>
+                <div id="resEconomyContainer" class="bg-white dark:bg-darkSurface p-4 rounded-xl shadow-sm hidden">
+                    <div class="flex justify-between items-center">
+                        <p class="text-gray-500 dark:text-gray-400 text-sm">Economia vs Combustão</p>
+                        <svg id="economyEditIcon" class="w-4 h-4 text-gray-400 cursor-pointer" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path>
+                        </svg>
+                    </div>
+                    <p id="resEconomy" class="text-2xl font-bold text-green-600 dark:text-green-400">R$ --</p>
                 </div>
             </div>
 
@@ -207,22 +218,53 @@
     </div>
 
     <!-- Bottom Sheet Component -->
-    <div id="overlay" class="fixed inset-0 bg-black/50 dark:bg-black/70 z-40"></div>
-    <div id="bottomSheet" class="fixed bottom-0 left-0 right-0 bg-white dark:bg-darkSurface z-50 rounded-t-[32px] max-h-[80vh] flex flex-col shadow-2xl">
-        <!-- Handle -->
-        <div class="w-full flex justify-center p-3">
-            <div class="w-12 h-1.5 bg-gray-300 dark:bg-gray-600 rounded-full"></div>
-        </div>
-        <!-- Content -->
-        <div class="p-6 pt-2 overflow-y-auto">
-            <h3 id="sheetTitle" class="text-xl font-bold text-gray-800 dark:text-gray-100 mb-4 text-center">Selecione</h3>
-            <div id="sheetOptions" class="space-y-1">
-                <!-- Options injected here -->
+        <div id="overlay" class="fixed inset-0 bg-black/50 dark:bg-black/70 z-40"></div>
+        <div id="bottomSheet" class="fixed bottom-0 left-0 right-0 bg-white dark:bg-darkSurface z-50 rounded-t-[32px] max-h-[80vh] flex flex-col shadow-2xl">
+            <!-- Handle -->
+            <div class="w-full flex justify-center p-3">
+                <div class="w-12 h-1.5 bg-gray-300 dark:bg-gray-600 rounded-full"></div>
             </div>
+            <!-- Content -->
+            <div class="p-6 pt-2 overflow-y-auto">
+                <h3 id="sheetTitle" class="text-xl font-bold text-gray-800 dark:text-gray-100 mb-4 text-center">Selecione</h3>
+                <div id="sheetOptions" class="space-y-1">
+                    <!-- Options injected here -->
+                </div>
+            </div>
+            <!-- Safe Area Spacer for iOS -->
+            <div class="h-6"></div>
         </div>
-        <!-- Safe Area Spacer for iOS -->
-        <div class="h-6"></div>
-    </div>
+
+        <!-- Economy Settings Modal -->
+        <div id="economyOverlay" class="fixed inset-0 bg-black/50 dark:bg-black/70 z-40 hidden"></div>
+        <div id="economyBottomSheet" class="fixed bottom-0 left-0 right-0 bg-white dark:bg-darkSurface z-50 rounded-t-[32px] max-h-[80vh] flex flex-col shadow-2xl">
+            <!-- Handle -->
+            <div class="w-full flex justify-center p-3">
+                <div class="w-12 h-1.5 bg-gray-300 dark:bg-gray-600 rounded-full"></div>
+            </div>
+            <!-- Content -->
+            <div class="p-6 pt-2 overflow-y-auto">
+                <h3 class="text-xl font-bold text-gray-800 dark:text-gray-100 mb-6 text-center">Configurar Comparativo</h3>
+                
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Preço da Gasolina (R$/l)</label>
+                        <input type="number" id="precoGasolinaInput" value="5.80" step="0.01" class="w-full p-4 bg-gray-50 dark:bg-darkBg border border-gray-200 dark:border-darkBorder rounded-xl focus:ring-2 focus:ring-blue-500 focus:outline-none text-lg text-gray-800 dark:text-gray-100">
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Consumo do Carro Comparado (km/l)</label>
+                        <input type="number" id="consumoCombustaoInput" value="10.0" step="0.1" class="w-full p-4 bg-gray-50 dark:bg-darkBg border border-gray-200 dark:border-darkBorder rounded-xl focus:ring-2 focus:ring-blue-500 focus:outline-none text-lg text-gray-800 dark:text-gray-100">
+                    </div>
+                </div>
+                
+                <button id="closeEconomySheet" class="w-full mt-6 bg-blue-600 dark:bg-blue-500 hover:bg-blue-700 dark:hover:bg-blue-600 text-white font-bold py-4 rounded-xl text-lg shadow-lg transition-all active:scale-95">
+                    Salvar e Fechar
+                </button>
+            </div>
+            <!-- Safe Area Spacer for iOS -->
+            <div class="h-6"></div>
+        </div>
 
     <script>
         // Theme Engine
@@ -258,6 +300,22 @@
             car_id: null,
             year: null
         };
+
+        // Estado para economia vs combustível
+        let economyState = {
+            precoGasolina: 5.80,
+            consumoCombustao: 10.0
+        };
+
+        // Função para calcular economia vs combustível
+        function calculateEconomy(rangeAddedKm, costElectric) {
+            const custoCombustivel = (rangeAddedKm / economyState.consumoCombustao) * economyState.precoGasolina;
+            const valorEconomia = custoCombustivel - costElectric;
+            return {
+                custoCombustivel,
+                valorEconomia
+            };
+        }
 
         // Elementos
         const brandTrigger = document.getElementById('brandTrigger');
@@ -295,6 +353,10 @@
 
         let specsOpen = false;
 
+        // Variáveis para o último resultado de simulação
+        let lastSimulationResult = null;
+        let lastSelectedVehicle = null;
+
         // Modal Functions
         function openSheet(title, options, onSelect) {
             sheetTitle.textContent = title;
@@ -323,6 +385,50 @@
         }
 
         overlay.onclick = closeSheet;
+
+        // Economy Settings Modal Functions
+        function openEconomySettings() {
+            const precoGasolinaInput = document.getElementById('precoGasolinaInput');
+            const consumoCombustaoInput = document.getElementById('consumoCombustaoInput');
+            
+            precoGasolinaInput.value = economyState.precoGasolina;
+            consumoCombustaoInput.value = economyState.consumoCombustao;
+            
+            document.getElementById('economyOverlay').classList.remove('hidden');
+            document.getElementById('economyBottomSheet').classList.add('active');
+            document.getElementById('economyBottomSheet').style.transform = 'translateY(0)';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeEconomySettings() {
+            const precoGasolinaInput = document.getElementById('precoGasolinaInput');
+            const consumoCombustaoInput = document.getElementById('consumoCombustaoInput');
+            
+            economyState.precoGasolina = parseFloat(precoGasolinaInput.value) || 5.80;
+            economyState.consumoCombustao = parseFloat(consumoCombustaoInput.value) || 10.0;
+            
+            document.getElementById('economyOverlay').classList.add('hidden');
+            document.getElementById('economyBottomSheet').classList.remove('active');
+            document.getElementById('economyBottomSheet').style.transform = 'translateY(100%)';
+            document.body.style.overflow = '';
+            
+            // Recalcular economia se houver resultados anteriores
+            if (lastSimulationResult && lastSelectedVehicle) {
+                const resEconomyContainer = document.getElementById('resEconomyContainer');
+                const resEconomy = document.getElementById('resEconomy');
+                
+                if (lastSelectedVehicle.range_km && lastSelectedVehicle.range_km > 0) {
+                    const economyData = calculateEconomy(lastSimulationResult.range_added_km, lastSimulationResult.total_cost);
+                    
+                    if (economyData.valorEconomia > 0) {
+                        resEconomy.textContent = `R$ ${economyData.valorEconomia.toFixed(2)}`;
+                        resEconomyContainer.classList.remove('hidden');
+                    } else {
+                        resEconomyContainer.classList.add('hidden');
+                    }
+                }
+            }
+        }
 
         // Selection Handlers
         brandTrigger.onclick = () => {
@@ -506,6 +612,11 @@
         // Listen to charger power input changes
         chargerPowerInput.addEventListener('input', updateChargerInfo);
 
+        // Economy Settings Listeners
+        document.getElementById('economyEditIcon').addEventListener('click', openEconomySettings);
+        document.getElementById('economyOverlay').addEventListener('click', closeEconomySettings);
+        document.getElementById('closeEconomySheet').addEventListener('click', closeEconomySettings);
+
         // Fetch Inicial
         async function fetchCars() {
             try {
@@ -649,6 +760,10 @@
 
                 const res = await response.json();
                 
+                // Salvar resultado para recálculo posterior
+                lastSimulationResult = res;
+                lastSelectedVehicle = selectedVehicle;
+                
                 // Update simulation message
                 if (message) {
                     if (isUnsupported) {
@@ -687,6 +802,23 @@
                     resRangeContainer.classList.remove('hidden');
                 } else {
                     resRangeContainer.classList.add('hidden');
+                }
+
+                // Calcular economia vs combustível
+                const resEconomyContainer = document.getElementById('resEconomyContainer');
+                const resEconomy = document.getElementById('resEconomy');
+                if (selectedVehicle && selectedVehicle.range_km && selectedVehicle.range_km > 0) {
+                    const economyData = calculateEconomy(res.range_added_km, res.total_cost);
+                    console.log('Economia calculada:', economyData);
+                    
+                    if (economyData.valorEconomia > 0) {
+                        resEconomy.textContent = `R$ ${economyData.valorEconomia.toFixed(2)}`;
+                        resEconomyContainer.classList.remove('hidden');
+                    } else {
+                        resEconomyContainer.classList.add('hidden');
+                    }
+                } else {
+                    resEconomyContainer.classList.add('hidden');
                 }
                 
                 resultCard.classList.remove('hidden');
